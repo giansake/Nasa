@@ -21,7 +21,6 @@ const DateNavigation = () => {
     );
   }, [date]);
 
-  console.log(formattedDate);
   return (
     <div className="date-navigation">
       <button onClick={() => handleDate(-1)}>prev</button>
