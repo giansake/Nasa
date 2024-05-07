@@ -1,25 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const DateNavigation = () => {
   const [date, setDate] = useState(new Date());
+  const [formattedDate, setFormattedDate] = useState("");
 
   const handleDate = (direction) => {
     const newDate = new Date(date);
     newDate.setDate(newDate.getDate() + direction);
-
     setDate(newDate);
   };
 
-  console.log(date);
+  useEffect(() => {
+    setFormattedDate(
+      date.toLocaleDateString("it-IT", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    );
+  }, [date]);
 
-  const currentDate = new Date();
-  const formattedDate = currentDate.toLocaleDateString("it-IT", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-
+  console.log(formattedDate);
   return (
     <div className="date-navigation">
       <button onClick={() => handleDate(-1)}>prev</button>
