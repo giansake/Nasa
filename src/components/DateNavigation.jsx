@@ -1,8 +1,10 @@
 const DateNavigation = () => {
+  const currentDate = new Date();
+
   return (
     <div className="date-navigation">
       <button>prev</button>
-      <span>current date</span>
+      <span>{currentDate.toString()}</span>
       <button>next</button>
     </div>
   );
