@@ -34,7 +34,7 @@ function App() {
     fetchNasaData();
   }, [currentDate]);
 
-  // console.log(currentDate);
+  console.log(data);
   return (
     <>
       <DateNavigation setCurrentDate={setCurrentDate} />
