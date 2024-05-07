@@ -9,3 +9,7 @@
 
   border: 2px solid blue;
 }
+
+.date-navigation button {
+  font-size: 2rem;
+}
