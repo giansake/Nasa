@@ -1,4 +1,17 @@
+import { useState } from "react";
+
 const DateNavigation = () => {
+  const [date, setDate] = useState(new Date());
+
+  const handleDate = (direction) => {
+    const newDate = new Date(date);
+    newDate.setDate(newDate.getDate() + direction);
+
+    setDate(newDate);
+  };
+
+  console.log(date);
+
   const currentDate = new Date();
   const formattedDate = currentDate.toLocaleDateString("it-IT", {
     weekday: "long",
@@ -6,11 +19,12 @@ const DateNavigation = () => {
     month: "long",
     day: "numeric",
   });
+
   return (
     <div className="date-navigation">
-      <button>prev</button>
+      <button onClick={() => handleDate(-1)}>prev</button>
       <span>{formattedDate}</span>
-      <button>next</button>
+      <button onClick={() => handleDate(1)}>next</button>
     </div>
   );
 };
