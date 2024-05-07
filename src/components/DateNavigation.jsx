@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const DateNavigation = () => {
+const DateNavigation = ({ setCurrentDate }) => {
   const [date, setDate] = useState(new Date());
   const [formattedDate, setFormattedDate] = useState("");
 
@@ -19,6 +19,7 @@ const DateNavigation = () => {
         day: "numeric",
       })
     );
+    setCurrentDate(date);
   }, [date]);
 
   return (
