@@ -23,6 +23,8 @@ function App() {
         setData(responseData);
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -32,7 +34,9 @@ function App() {
   return (
     <>
       <DateNavigation />
-      <h1>Hello world</h1>
+      <div>
+        {isLoading ? <h2>Is Loading...</h2> : <h2>I GOT YOU COVERED!</h2>}
+      </div>
     </>
   );
 }
