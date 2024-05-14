@@ -22,6 +22,11 @@ function App() {
         if (!response.ok) {
           throw new Error(`Qualcosa è andato storto: ${response.status}`);
         }
+
+        // const headers = new Headers(response.headers);
+
+        console.log(response.headers.get("x-ratelimit-remaining"));
+
         let responseData = await response.json();
         setData(responseData);
       } catch (error) {
@@ -34,7 +39,7 @@ function App() {
     fetchNasaData();
   }, [currentDate]);
 
-  console.log(data);
+  // console.log(data);
   return (
     <>
       <DateNavigation setCurrentDate={setCurrentDate} />
@@ -48,7 +53,11 @@ function App() {
               <p>{data.explanation}</p>
             </div>
             <div className="page-asset-wrapper">
-              <img className="apod-image" src={data.url} alt="" />
+              {data.media_type === "video" ? (
+                <h2>VIDEO</h2>
+              ) : (
+                <img className="apod-image" src={data.url} alt="" />
+              )}
             </div>
           </div>
         )}
