@@ -1,6 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { ThemeContext } from "./context/ThemeProvider";
 
 const DateNavigation = ({ setCurrentDate }) => {
+  const { remainingRequests } = useContext(ThemeContext);
+
   const [date, setDate] = useState(new Date());
   const [formattedDate, setFormattedDate] = useState("");
 
@@ -26,6 +29,7 @@ const DateNavigation = ({ setCurrentDate }) => {
     <div className="date-navigation">
       <button onClick={() => handleDate(-1)}>&larr;</button>
       <span>{formattedDate}</span>
+      <span>Occhio! {remainingRequests}</span>
       <button onClick={() => handleDate(1)}>&rarr;</button>
     </div>
   );
