@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+
 import DateNavigation from "./components/DateNavigation";
 import Apod from "./components/Apod";
 
