@@ -38,7 +38,21 @@ function App() {
   return (
     <>
       <DateNavigation setCurrentDate={setCurrentDate} />
-      <div>{isLoading ? <h2>Is Loading...</h2> : <h2>{data.title}</h2>}</div>
+      <div>
+        {isLoading ? (
+          <h2>Is Loading...</h2>
+        ) : (
+          <div className="page-container">
+            <div className="page-text-description">
+              <h2>{data.title}</h2>
+              <p>{data.explanation}</p>
+            </div>
+            <div className="page-asset-wrapper">
+              <img className="apod-image" src={data.url} alt="" />
+            </div>
+          </div>
+        )}
+      </div>
     </>
   );
 }

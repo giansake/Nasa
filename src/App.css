@@ -7,9 +7,27 @@
 
   padding: 1em;
 
-  border: 2px solid blue;
+  border-radius: 12px;
+  box-shadow: -2px 10px 48px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -2px 10px 48px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -2px 10px 48px 0px rgba(0, 0, 0, 0.75);
 }
 
 .date-navigation button {
   font-size: 2rem;
+}
+
+.page-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 1em;
+}
+
+.page-asset-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.apod-image {
+  width: 100%;
 }

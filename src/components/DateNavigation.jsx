@@ -20,7 +20,7 @@ const DateNavigation = ({ setCurrentDate }) => {
       })
     );
     setCurrentDate(date);
-  }, [date]);
+  }, [date, setCurrentDate]);
 
   return (
     <div className="date-navigation">
